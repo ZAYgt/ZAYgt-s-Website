@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ZAYGT - Multi-Skilled Content Creator, Game Developer, and Founder of Inverse Studio" />
+  <title>ZAYGT | Creative Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  
+  <style>
+    /* ===== MODERN BASE STYLES ===== */
+    :root {
+      /* Primary color scheme - blue & red gradient */
+      --primary-blue: #2563eb;
+      --primary-blue-light: #3b82f6;
+      --primary-red: #dc2626;
+      --primary-red-light: #ef4444;
+      --gradient-start: #2563eb;
+      --gradient-end: #dc2626;
+      --gradient-cyan-magenta: linear-gradient(90deg, #00FFFF, #FF00FF);
+      --gradient-itch: linear-gradient(90deg, #FF576D, #FF8E53);
+      --gradient-gamejolt: linear-gradient(90deg, #2FD648, #1A8033);
+      --gradient-youtube: linear-gradient(90deg, #FF0000, #CC0000);
+      --gradient-twitter: linear-gradient(90deg, #1DA1F2, #0D8BD9);
+      
+      /* Neutrals */
+      --background: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f1f5f9;
+      --text-light: #94a3b8;
+      --border: #334155;
+      
+      /* Dark mode variables */
+      --dark-bg: #0f172a;
+      --dark-card: #1e293b;
+      --dark-text: #f1f5f9;
+      --dark-text-light: #94a3b8;
+      --dark-border: #334155;
+      
+      /* Gradient backgrounds */
+      --gradient1-light: linear-gradient(rgba(0, 0, 140, 0.3), rgba(140, 0, 0, 0.3));
+      --gradient1-dark: linear-gradient(rgba(0, 0, 80, 0.5), rgba(80, 0, 0, 0.5));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--background);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      color: var(--text);
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 8rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== NAVIGATION ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.5rem 0;
+      transition: all 0.3s ease;
+      background-color: rgba(0, 0, 73, 0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    header.scrolled {
+      padding: 1rem 0;
+      background-color: linear-gradient(135deg, rgb(0, 0, 255) 0%, rgb(255, 0, 0) 100%);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .logo span {
+      background: linear-gradient(90deg, #000088, #880000);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      transition: width 0.3s ease;
+      border-radius: 1px;
+    }
+
+    nav a:hover {
+      color: var(--primary-blue);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      background: var(--gradient1-dark), url('ZAYWallpaper1.gif') left center;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .highlight {
+      background: linear-gradient(90deg, #0000ff, #ff0000);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ===== SECTION STYLES ===== */
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-header h2:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    /* ===== GAMES SECTION ===== */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .game-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+    }
+
+    .game-image {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .game-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .game-card:hover .game-image img {
+      transform: scale(1.05);
+    }
+
+    .game-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .inverse-studio {
+      background: var(--gradient-cyan-magenta);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .game-credits {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .game-description {
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .game-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .game-link {
+      flex: 1;
+      min-width: 120px;
+      padding: 0.75rem;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .itch-link {
+      background: var(--gradient-itch);
+      color: white;
+    }
+
+    .itch-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .gamejolt-link {
+      background: var(--gradient-gamejolt);
+      color: white;
+    }
+
+    .gamejolt-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .discord-link {
+      background-color: #5865F2;
+      color: white;
+    }
+
+    .discord-link:hover {
+      background-color: #4750a3;
+      transform: translateY(-2px);
+    }
+
+    .youtube-link {
+      background: var(--gradient-youtube);
+      color: white;
+    }
+
+    .youtube-link:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ===== ART SECTION ===== */
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .art-item {
+      border-radius: 12px;
+      background-color: var(--card-bg);
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .art-item:hover {
+      transform: translateY(-5px);
+      transform: scale(1.08);
+    }
+
+    .art-image {
+      height: 300px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .art-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .art-item:hover .art-image img {
+      transform: scale(0.9);
+    }
+
+    /* ===== YOUTUBE SECTION ===== */
+    .youtube-container {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background-color: var(--card-bg);
+      color: var(--text);
+    }
+
+    .youtube-videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .youtube-video {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .youtube-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .youtube-subscribe {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .subscribe-button {
+      display: inline-block;
+      padding: 0.8rem 2.5rem;
+      background: var(--gradient-youtube);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      animation: pulse 2s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .subscribe-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+      }
+    }
+
+    /* ===== DISCORD SECTION ===== */
+    .discord-container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: var(--background); /* Fixed Discord blue */
+      color: #fff;               /* Fixed white text */
+    }
+
+    .discord-cta {
+      background: linear-gradient(135deg, #5865F2 0%, #4750A3 100%);
+      color: #fff;
+      padding: 3rem;
+      border-radius: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .discord-logo {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .discord-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 2.5rem;
+      background-color: #fff;
+      color: #5865F2;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .discord-button:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-3px);
+    }
+
+    /* ===== SOCIAL MEDIA SECTION ===== */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .social-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-5px);
+    }
+
+    .social-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      background: black;
+      color: white;
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-icon img {
+      width: 60%;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .social-name {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    .social-handle {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: var(--dark-text);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo img {
+      height: 90px;
+      width: auto;
+    }
+
+    .footer-logo span {
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .footer-links a {
+      color: var(--dark-text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-blue-light);
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .footer-social a {
+      color: var(--dark-text-light);
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--primary-blue-light);
+    }
+
+    .footer-about {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+      color: var(--dark-text-light);
+    }
+
+    .copyright {
+      color: var(--dark-text-light);
+      font-size: 0.95rem;
+      margin-top: 2rem;
+    }
+
+    /* ===== DARK MODE TOGGLE ===== */
+    .theme-toggle {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 100px;
+      height: 50px;
+      border-radius: 20%;
+      background: var(--card-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(30deg);
+      transform: scale(1.1);
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 992px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .hero {
+        text-align: center;
+      }
+      
+      .hero-content {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --card-bg: #ffffff;
+      }
+      
+      h1 {
+        font-size: 2.3rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 5rem 0;
+      }
+      
+      .header-content {
+        position: relative;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        flex-direction: column;
+        background: var(--card-bg);
+        width: 100%;
+        text-align: center;
+        transition: right 0.3s ease;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem 0;
+        gap: 1.5rem;
+      }
+      
+      nav ul.active {
+        right: 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .games-grid, .art-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .game-links {
+        flex-direction: column;
+      }
+      
+      .youtube-videos {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      .section-header {
+        margin-bottom: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <!-- Navigation -->
+  <header id="header">
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <img src="ZAYgt-Colored-Flat.png" alt="ZAYGT Logo">
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#games">Games</a></li>
+          <li><a href="#art">Art</a></li>
+          <li><a href="#youtube">YouTube</a></li>
+          <li><a href="#discord">Discord</a></li>
+          <li><a href="#social">Social</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="overview">
+    <div class="container">
+      <div class="hero-content">
+        <h1 style="color: white;">Hi, I'm <span class="highlight">ZAYGT</span></h1>
+        <p style="color: white;">Multi-Skilled Content Creator, Game Developer, and Founder of <a href="https://inverse-studio.odoo.com/" target="_blank" class="inverse-studio">Inverse Studio</a>.</p>
+        <a href="#games" class="cta-button">Explore My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games Section -->
+  <section id="games">
+    <div class="container">
+      <div class="section-header">
+        <h2>Games</h2>
+        <p class="section-description">Projects developed under Inverse Studio and personal works.</p>
+      </div>
+      
+      <div class="games-grid">
+        <!-- DARK THREADS™ -->
+        <div class="game-card">
+          <div class="game-image">
+            <img src="BANNER2[edit1].png" alt="Dark Threads Banner">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">DARK THREADS™</h3>
+            <p class="inverse-studio"><a href="https://inverse-studio.odoo.com/" target="_blank" style="color: inherit; text-decoration: none;">Inverse Studio</a> • Mascot Horror</p>
+            <p class="game-description">A SCI-FI, Mascot-ish Horror game about Travelling between dimensions with a Sentient AI!</p>
+            <div class="game-links">
+              <a href="https://discord.gg/CXV8QZBB8f" target="_blank" class="game-link discord-link">Community</a>
+              <a href="https://www.youtube.com/watch?v=sJzduZ1nFis" target="_blank" class="game-link youtube-link">Teaser</a>
+              <a href="https://gamejolt.com/games/dark-tides-ch1/963030" target="_blank" class="game-link gamejolt-link">Game Page</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- VOID'S CAVE -->
+        <div class="game-card">
+          <div class="game-image">
+            <img src="header1-hvsteu9q.png" alt="Void's Cave Banner">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">VOID'S CAVE</h3>
+            <p class="inverse-studio">Personal Project • Surreal Adventure</p>
+            <p class="game-description">A surreal indie experience exploring themes of isolation and discovery.</p>
+            <div class="game-links">
+              <a href="https://zaygt.itch.io/voids-cave" target="_blank" class="game-link itch-link">itch.io</a>
+              <a href="https://zaygt.gamejolt.io/voids-cave" target="_blank" class="game-link gamejolt-link">Game Jolt</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- KNIGHT IN A HURRY -->
+        <div class="game-card">
+          <div class="game-image">
+            <img src="9q+fUe.png" alt="Knight in a Hurry Logo">
+          </div>
+          <div class="game-content">
+            <h3 class="game-title">KNIGHT IN A HURRY</h3>
+            <p class="inverse-studio">Personal Project • Adventure Game</p>
+            <p class="game-description">Play as a mighty knight going on a journey to save the world from the EVIL KING and Destroy His BLACK CROWN! But on your way... You stumble upon a small village, and the residents force you to do their tasks!</p>
+            <p class="game-credits">
+              Made for: GAMES ZANGA 13!
+            </p>
+            <div class="game-links">
+              <a href="https://zaygt.itch.io/knight-in-a-hurry" target="_blank" class="game-link itch-link">itch.io</a>
+              <a href="https://zaygt.gamejolt.io/knight-in-a-hurry" target="_blank" class="game-link gamejolt-link">Game Jolt</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Art Section -->
+  <section id="art">
+    <div class="container">
+      <div class="section-header">
+        <h2>Artwork</h2>
+        <p class="section-description">A collection of visual work from my creative process.</p>
+      </div>
+      <div class="art-grid">
+        <!-- ART ITEM 1 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="TSUHO2.png" alt="Character Redesign - TSLAD">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 2 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="Ghostly1.jpg" alt="White Hacker Character Design">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 3 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="Miku1.jpg" alt="Hatsune Miku Redesign">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 4 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="TSUHO1-POST1.png" alt="Cyber Knight Illustration">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 5 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="Char-art1.jpg" alt="Green-Haired Hacker Design">
+          </div>
+        </div>
+
+        <!-- ART ITEM 6 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="Char-art2-post1.jpg" alt="Character Redesign - TSLAD">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 7 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="GD-Art1.png" alt="White Hacker Character Design">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 8 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="WhatsApp Image 2024-01-19 at 5.01.36 PM.jpeg" alt="Hatsune Miku Redesign">
+          </div>
+        </div>
+        
+        <!-- ART ITEM 9 -->
+        <div class="art-item">
+          <div class="art-image">
+            <img src="WhatsApp Image 2024-01-19 at 4.40.14 PM.jpeg" alt="Green-Haired Hacker Design">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Section -->
+  <section id="youtube">
+    <div class="container">
+      <div class="section-header">
+        <h2>YouTube</h2>
+        <p class="section-description">Gameplay and creative process content.</p>
+      </div>
+      
+      <div class="youtube-videos">
+        <!-- YouTube Video 1 -->
+        <div class="youtube-video">
+          <iframe src="https://www.youtube.com/embed/sJzduZ1nFis" title="DARK THREADS™ Teaser Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- YouTube Video 2 -->
+        <div class="youtube-video">
+          <iframe src="https://www.youtube.com/embed/MFJK8TWC34Q" title="Gaming Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- YouTube Video 3 -->
+        <div class="youtube-video">
+          <iframe src="https://www.youtube.com/embed/e7VrgI-zVXY" title="Speed Paint Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      
+      <div class="youtube-subscribe">
+        <a href="https://www.youtube.com/@zaygt404/" target="_blank" class="subscribe-button">Subscribe Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discord Section -->
+  <section id="discord">
+    <div class="container">
+      <div class="section-header">
+        <h2>Community</h2>
+        <p class="section-description">Join our creative community.</p>
+      </div>
+      
+      <div class="discord-container">
+        <div class="discord-cta" style="background-color: #6B46C1; color: white;">
+          <div class="discord-logo">💬</div>
+          <h3 style="color: white;">Join the Inverse Studio Discord</h3>
+          <p style="color: #B8A5D4;">Be part of our creative community where we discuss game development and share works in progress.</p>
+          <a href="https://discord.gg/CXV8QZBB8f" target="_blank" class="discord-button" style="background-color: white; color: #6B46C1; border: 1px solid #6B46C1;">Join Server</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Social Media Section -->
+<section id="social">
+  <div class="container">
+    <div class="section-header">
+      <h2>Connect With Me</h2>
+      <p class="section-description">Follow my creative journey.</p>
+    </div>
+    
+    <div class="social-links">
+      <a href="https://zaygt.itch.io/" target="_blank" class="social-link">
+        <div class="social-icon">
+          <img src="Itch.io.png" alt="itch.io">
+        </div>
+        <span class="social-name">itch.io</span>
+        <span class="social-handle">@zaygt</span>
+      </a>
+      
+      <a href="gamejolt.com/invite/ZAYgt" target="_blank" class="social-link">
+        <div class="social-icon">
+          <img src="GameJolt-light.png" alt="Game Jolt">
+        </div>
+        <span class="social-name">Game Jolt</span>
+        <span class="social-handle">@zaygt</span>
+      </a>
+      
+      <a href="https://www.youtube.com/@zaygt404/" target="_blank" class="social-link">
+        <div class="social-icon">
+          <img src="YouTube.png" alt="YouTube">
+        </div>
+        <span class="social-name">YouTube</span>
+        <span class="social-handle">@ZAYgt</span>
+      </a>
+      
+      <a href="https://x.com/zaygt404" target="_blank" class="social-link">
+        <div class="social-icon">
+          <img src="256px-X_logo_2023_original.png" alt="Twitter/X">
+        </div>
+        <span class="social-name">Twitter/X</span>
+        <span class="social-handle">@ZAYgt</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <a href="#" class="footer-logo">
+          <img src="ZAYgt-Colored-Flat.png" alt="ZAYGT Logo">
+        </a>
+        <p>Multi-Skilled Content Creator • Game Developer • Founder of <a href="https://inverse-studio.odoo.com/" target="_blank" style="color: var(--primary-blue-light); text-decoration: underline;">Inverse Studio</a></p>
+        
+        <div class="footer-about">
+          <p>Welcome to my Space ship! I'm <strong>ZAYgt</strong>, a Multi-skilled content creator with experience in all sorts of entertainment media! From game development to animations and digital art, I create unique experiences for everyone to enjoy.</p>
+        </div>
+        
+        <div class="footer-links">
+          <a href="#overview">Overview</a>
+          <a href="#games">Games</a>
+          <a href="#art">Art</a>
+          <a href="#youtube">YouTube</a>
+          <a href="#discord">Discord</a>
+          <a href="#social">Social</a>
+        </div>
+        
+        <div class="footer-social">
+          <a href="https://zaygt.itch.io/" target="_blank">
+            <img src="Itch.io.png" alt="itch.io" style="width: 32px; height: 32px;">
+          </a>
+          <a href="gamejolt.com/invite/ZAYgt" target="_blank">
+            <img src="GameJolt-light.png" alt="Game Jolt" style="width: 32px; height: 32px;">
+          </a>
+          <a href="https://www.youtube.com/@zaygt404/" target="_blank">
+            <img src="YouTube.png" alt="YouTube" style="width: 32px; height: 32px;">
+          </a>
+          <a href="https://x.com/zaygt404" target="_blank">
+            <img src="256px-X_logo_2023_original.png" alt="Twitter/X" style="width: 32px; height: 32px;">
+          </a>
+        </div>
+        
+        <div class="copyright">
+          &copy; <span id="year"></span> ZAYGT. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle (Optional) -->
+  <div class="theme-toggle" id="theme-toggle">
+    <span>☀️Light?</span>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.textContent = '☰';
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Section scroll animation
+    const sections = document.querySelectorAll('section');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    themeToggle.addEventListener('click', () => {
+      if (document.body.classList.contains('dark-mode')) {
+        // Switch to light mode
+        document.body.classList.remove('dark-mode');
+        document.documentElement.style.setProperty('--background', '#f8fafc');
+        document.documentElement.style.setProperty('--card-bg', '#ffffff');
+        document.documentElement.style.setProperty('--text', '#1e293b');
+        document.documentElement.style.setProperty('--text-light', '#64748b');
+        document.documentElement.style.setProperty('--border', '#e2e8f0');
+        themeToggle.innerHTML = '<span>🌓Dark?</span>';
+      } else {
+        // Switch to dark mode
+        document.body.classList.add('dark-mode');
+        document.documentElement.style.setProperty('--background', 'var(--dark-bg)');
+        document.documentElement.style.setProperty('--card-bg', 'var(--dark-card)');
+        document.documentElement.style.setProperty('--text', 'var(--dark-text)');
+        document.documentElement.style.setProperty('--text-light', 'var(--dark-text-light)');
+        document.documentElement.style.setProperty('--border', 'var(--dark-border)');
+        themeToggle.innerHTML = '<span>☀️Light?</span>';
+      }
+    });
+    
+    // Initialize first section as visible
+    setTimeout(() => {
+      document.querySelector('.hero').classList.add('visible');
+    }, 300);
+  </script>
+</body>
+</html>
